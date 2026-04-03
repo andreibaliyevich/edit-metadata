@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Edit Metadata">
+  <meta name="keywords" content="Edit, Metadata">
+  <meta name="author" content="Andrei Baliyevich">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <title>Edit Metadata</title>
+  {{ bootstrap.load_css() }}
+</head>
+<body>
+  <header class="py-5">
+    <h1 class="display-3 text-center">Edit Metadata</h1>
+  </header>
+  <div class="container px-3 px-md-5">
+    {% from 'bootstrap5/form.html' import render_field %}
+    <form class="row" action="/" method="post" enctype="multipart/form-data">
+      {{ form.csrf_token() }}
+      <div class="col-md-6">
+        {{ render_field(form.image) }}
+      </div>
+      <div class="col-md-6">
+        {{ render_field(form.date) }}
+      </div>
+      <div class="col-md-6">
+        {{ render_field(form.latitude_a) }}
+        {{ render_field(form.latitude_m) }}
+        {{ render_field(form.latitude_s) }}
+        {{ render_field(form.latitude_ref) }}
+      </div>
+      <div class="col-md-6">
+        {{ render_field(form.longitude_a) }}
+        {{ render_field(form.longitude_m) }}
+        {{ render_field(form.longitude_s) }}
+        {{ render_field(form.longitude_ref) }}
+      </div>
+      {{ render_field(form.submit) }}
+    </form>
+  </div>
+  <footer class="container py-5 px-3 px-md-5">
+    <small class="float-end">Copyright &copy; 2024 Edit Metadata</small>
+  </footer>
+  {{ bootstrap.load_js() }}
+</body>
+</html>

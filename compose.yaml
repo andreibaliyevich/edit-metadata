@@ -1,0 +1,11 @@
+services:
+  flask:
+    container_name: editmetadata-flask
+    build:
+      context: ./src/
+      dockerfile: Dockerfile
+    command: flask --app app run --host=0.0.0.0 --debug
+    volumes:
+      - ./src/:/usr/src/app/
+    ports:
+      - 5000:5000
